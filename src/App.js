@@ -1,9 +1,17 @@
+import Header from './Header/Header';
+import Main from './Main/Main';
+import Map from './Map/Map';
+import Gallery from './Gallery/Gallery';
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
+      <Header />
+      <Main />
+      <Map />
+      <Gallery />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
