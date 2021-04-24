@@ -3,10 +3,17 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+
+const tenex = createMuiTheme({
+  
+})
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ThemeProvider theme={tenex}>
+      <App />
+    </ ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
