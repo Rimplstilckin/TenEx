@@ -12,11 +12,6 @@ import logo from '../img/logo.svg';
 
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    '& > * + *': {
-      marginLeft: theme.spacing(2),
-    },
-  },
   img: {
       width:200,
   },
@@ -26,13 +21,12 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const menu = ["About", "Gallery", "References", "Locations", "Contacts"]
+const menu = ["About", "Gallery", "References", "Locations", "Contact"]
 
  const Header = () => {
   const classes = useStyles();
   const preventDefault = (event) => event.preventDefault();
   return(
-    <div className={classes.root}>
     <AppBar className={classes.app} position="static">
       <Toolbar>
       <img className={classes.img} src={logo} alt="Logo" />
@@ -46,7 +40,6 @@ const menu = ["About", "Gallery", "References", "Locations", "Contacts"]
         })}
       </Toolbar>
     </AppBar>
-  </div>
   )
 }
 
