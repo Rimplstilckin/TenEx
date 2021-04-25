@@ -6,7 +6,26 @@ import reportWebVitals from './reportWebVitals';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 
 const tenex = createMuiTheme({
-  
+  palette: {
+    bar: {
+      main: '#ddd'
+    },
+    button: {
+      main: '#3d92da'
+    },
+    blue: {
+      main: '#0073B6'
+    },
+    red: {
+      main: '#FC0604'
+    }
+  },
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 700
+    },
+  },
 })
 
 ReactDOM.render(

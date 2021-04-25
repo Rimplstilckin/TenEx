@@ -7,37 +7,74 @@ import IconButton from '@material-ui/core/IconButton';
 import Button from '@material-ui/core/Button';
 import Link from '@material-ui/core/Link';
 import MenuIcon from '@material-ui/icons/Menu';
-import Grid from '@material-ui/core/Grid';
+import Container from '@material-ui/core/Container';
 import logo from '../img/logo.svg';
 
 
 const useStyles = makeStyles((theme) => ({
   img: {
-      width:200,
+      width:"10%",
+      minWidth: 80
   },
   app: {
-    height: 100,
-    padding: 20
+    padding: 20,
+    fontSize: 20
+  },
+  menu: {
+    [theme.breakpoints.only('sm')]:{
+      display: "block",
+    }
+  },
+  content: {
+    width: "80%"
+  },
+  item: {
+    textAlign: "justify",
+    padding:"1% 3%",
+  },
+  xs: {
+    [theme.breakpoints.only('xs')]:{
+      display: "none",
+    }
+  },
+  button: {
   }
 }));
 
-const menu = ["About", "Gallery", "References", "Locations", "Contact"]
+const menu = ["About", "Gallery", "References", "Locations"]
 
  const Header = () => {
   const classes = useStyles();
   const preventDefault = (event) => event.preventDefault();
   return(
-    <AppBar className={classes.app} position="static">
+    <AppBar
+      className={classes.app}
+      position="static"
+      color="bar">
       <Toolbar>
-      <img className={classes.img} src={logo} alt="Logo" />
-        {menu.map(item=>{
-          return(<Link color="inherit"
-                       key={item[0]}
-                       onClick={preventDefault}
-                       href="#">
-                        {item}
-                       </Link>)
-        })}
+        <Link className={classes.img} href="#" onClick={preventDefault}>
+          <img src={logo} alt="Logo" />
+        </Link>
+        <Container className={classes.content}>
+          {menu.map(item=>{
+            return(<Link color="inherit"
+                         className={classes.item + " " + classes.xs}
+                         key={item[0]}
+                         onClick={preventDefault}
+                         href="#">
+                          {item}
+                         </Link>)
+            })}
+          </Container>
+          <Button
+            component={Link}
+            variant="contained"
+            color="blue"
+            href="#"
+            className={classes.button + " " + classes.xs}
+            size="large">
+            Contact
+          </Button>
       </Toolbar>
     </AppBar>
   )
