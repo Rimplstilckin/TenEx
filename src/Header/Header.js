@@ -1,5 +1,6 @@
 import React from 'react';
 import {fade, makeStyles } from '@material-ui/core/styles';
+import clsx from 'clsx';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -12,43 +13,40 @@ import logo from '../img/logo.svg';
 
 
 const useStyles = makeStyles((theme) => ({
+  app: {
+  },
   img: {
-      width:"10%",
-      minWidth: 80,
-      [theme.breakpoints.only('xs')]:{
-
-        float: "right",
+    minWidth: 150,
+    [theme.breakpoints.only('xs')]:{
+        display: "block!important",
+        margin: "auto!important"
       }
   },
-  app: {
-    padding: 20,
-    fontSize: 20
-  },
-  menu: {
-    [theme.breakpoints.only('sm')]:{
-      display: "block",
-    }
+  toolbar: {
+    width: "100%"
   },
   content: {
+    [theme.breakpoints.only('xs')]:{
+        display: "none!important",
+      }
+  },
+  innerContainer: {
     width: "80%"
   },
   item: {
-    textAlign: "justify",
-    padding:"1% 3%",
-  },
-  xs: {
-    [theme.breakpoints.only('xs')]:{
-      display: "none",
-    }
+    padding: 10
   },
   button: {
   },
+  iconButton: {
+  },
   menu: {
-    display: "none",
-    [theme.breakpoints.only('xs')]:{
-      display: "block",
-      fontSize: 30
-    }
+    display: "none!important",
+    color: "red",
+      [theme.breakpoints.only('xs')]:{
+          display: "inline!important",
+          padding: 10,
+        }
   }
 }));
 
@@ -62,31 +60,35 @@ const menu = ["About", "Gallery", "References", "Locations"]
       className={classes.app}
       position="static"
       color="bar">
-      <Toolbar>
+      <Toolbar className={classes.toolbar}>
         <Link className={classes.img} href="/.#" onClick={preventDefault}>
           <img src={logo} alt="Logo" />
         </Link>
         <Container className={classes.content}>
-          {menu.map(item=>{
-            return(<Link color="inherit"
+          <Container className={classes.innerContainer}>
+            {menu.map(item=>{
+              return(<Link color="inherit"
                          className={classes.item + " " + classes.xs}
                          key={item[0]}
                          onClick={preventDefault}
                          href="#">
                           {item}
                          </Link>)
-            })}
+             })}
           </Container>
           <Button
-            component={Link}
-            variant="contained"
-            color="blue"
-            href="#"
-            className={classes.button + " " + classes.xs}
-            size="large">
-            Contact
+                component={Link}
+                variant="contained"
+                color="blue"
+                href="#"
+                className={classes.button + " " + classes.xs}
+                size="large">
+          Contact
           </Button>
-          <MenuIcon className={classes.menu}/>
+        </Container>
+        <IconButton className={classes.iconButton}>
+          <MenuIcon className={classes.menu} />
+        </IconButton>
       </Toolbar>
     </AppBar>
   )
