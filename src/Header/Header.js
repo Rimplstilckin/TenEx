@@ -14,7 +14,11 @@ import logo from '../img/logo.svg';
 const useStyles = makeStyles((theme) => ({
   img: {
       width:"10%",
-      minWidth: 80
+      minWidth: 80,
+      [theme.breakpoints.only('xs')]:{
+
+        float: "right",
+      }
   },
   app: {
     padding: 20,
@@ -38,6 +42,13 @@ const useStyles = makeStyles((theme) => ({
     }
   },
   button: {
+  },
+  menu: {
+    display: "none",
+    [theme.breakpoints.only('xs')]:{
+      display: "block",
+      fontSize: 30
+    }
   }
 }));
 
@@ -52,7 +63,7 @@ const menu = ["About", "Gallery", "References", "Locations"]
       position="static"
       color="bar">
       <Toolbar>
-        <Link className={classes.img} href="#" onClick={preventDefault}>
+        <Link className={classes.img} href="/.#" onClick={preventDefault}>
           <img src={logo} alt="Logo" />
         </Link>
         <Container className={classes.content}>
@@ -75,6 +86,7 @@ const menu = ["About", "Gallery", "References", "Locations"]
             size="large">
             Contact
           </Button>
+          <MenuIcon className={classes.menu}/>
       </Toolbar>
     </AppBar>
   )
