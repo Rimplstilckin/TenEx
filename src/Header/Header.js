@@ -1,44 +1,32 @@
-import React from 'react';
-import {fade, makeStyles } from '@material-ui/core/styles';
-import clsx from 'clsx';
+import React, { useState } from 'react';
+import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
 import IconButton from '@material-ui/core/IconButton';
 import Button from '@material-ui/core/Button';
 import Link from '@material-ui/core/Link';
 import MenuIcon from '@material-ui/icons/Menu';
-import Container from '@material-ui/core/Container';
 import logo from '../img/logo.svg';
 
 
 const useStyles = makeStyles((theme) => ({
   app: {
+    flexGrow: 1
+  },
+  logoClass: {
+    textAlign: 'left'
   },
   img: {
-    minWidth: 150,
-    [theme.breakpoints.only('xs')]:{
-        display: "block!important",
-        margin: "auto!important"
-      }
+    maxWidth: 150
   },
-  toolbar: {
-    width: "100%"
-  },
+  // toolbar: {
+  //   width: "100%"
+  // },
   content: {
     [theme.breakpoints.only('xs')]:{
         display: "none!important",
       }
-  },
-  innerContainer: {
-    width: "80%"
-  },
-  item: {
-    padding: 10
-  },
-  button: {
-  },
-  iconButton: {
   },
   menu: {
     display: "none!important",
@@ -50,9 +38,19 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const menu = ["About", "Gallery", "References", "Locations"]
+const menu = [{name:"About", key: "oNama"},
+              {name: "Gallery", key:"galerija"},
+              {name: "References", key: "reference"},
+              {name:"Locations", key:"lokacije"}]
 
- const Header = () => {
+ export default function Header(){
+
+  const [currentState, newState] = useState(false);
+  const menuDrawer = (event) => {
+    console.log(currentState);
+    newState(!currentState);
+  }
+
   const classes = useStyles();
   const preventDefault = (event) => event.preventDefault();
   return(
@@ -61,37 +59,48 @@ const menu = ["About", "Gallery", "References", "Locations"]
       position="static"
       color="bar">
       <Toolbar className={classes.toolbar}>
-        <Link className={classes.img} href="/.#" onClick={preventDefault}>
-          <img src={logo} alt="Logo" />
-        </Link>
-        <Container className={classes.content}>
-          <Container className={classes.innerContainer}>
-            {menu.map(item=>{
-              return(<Link color="inherit"
-                         className={classes.item + " " + classes.xs}
-                         key={item[0]}
-                         onClick={preventDefault}
-                         href="#">
-                          {item}
-                         </Link>)
-             })}
-          </Container>
-          <Button
-                component={Link}
-                variant="contained"
-                color="blue"
-                href="#"
-                className={classes.button + " " + classes.xs}
-                size="large">
-          Contact
-          </Button>
-        </Container>
-        <IconButton className={classes.iconButton}>
-          <MenuIcon className={classes.menu} />
-        </IconButton>
+        <Grid container spacing={2} alignItems="center">
+          <Grid className={classes.logoClass} item sm={2} xs={10} >
+            <Link href="/.#" onClick={preventDefault}>
+              <img className={classes.img} src={logo} alt="Logo" />
+            </Link>
+          </Grid>
+          <Grid item
+                className={classes.content}
+                container
+                sm={8}
+                spacing={2}>
+              {menu.map(item=>{
+                return(<Grid item
+                             sm={3}
+                             key={item.key}>
+                          <Link color="inherit"
+                                className={classes.item + " " + classes.xs}
+                                onClick={preventDefault}
+                                href="#">
+                                {item.name}
+                          </Link>
+                        </Grid>)
+               })}
+            </Grid>
+            <Grid item xs={2} className={classes.content}>
+            <Button
+                  component={Link}
+                  variant="contained"
+                  color="blue"
+                  href="#"
+                  className={classes.button}
+                  size="large">
+            Contact
+            </Button>
+            </Grid>
+            <Grid item className={classes.menu} xs={2}>
+              <IconButton className={classes.iconButton} onClick={menuDrawer}>
+                <MenuIcon />
+              </IconButton>
+            </Grid>
+        </Grid>
       </Toolbar>
     </AppBar>
   )
 }
-
-export default Header;

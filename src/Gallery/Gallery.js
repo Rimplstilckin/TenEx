@@ -4,10 +4,6 @@ const Gallery = () => {
   return(
     <div>
       <h4>Gallery</h4>
-      <img />
-      <img />
-      <img />
-      <img />
     </div>
   )
 }

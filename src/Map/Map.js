@@ -6,7 +6,6 @@ const Map = () => {
       <h4>Our favorite routes</h4>
       <p>Lorem ipsum</p>
       <p>Test text</p>
-      <img />
     </div>
   )
 }
