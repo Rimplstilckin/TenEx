@@ -25,7 +25,7 @@ export default function Map(){
         </p>
       <img
         className={classes.image}
-        src='./img/map.jpeg'
+        src='./img/map.png'
         alt='Mapa'
         />
     </div>

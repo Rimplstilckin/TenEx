@@ -55,7 +55,7 @@ export default function Agile(){
         <img
           className={classes.image}
           alt="Van"
-          src='./img/agileImg.jpeg'
+          src='./img/KombiOk.jpeg'
           />
       </Grid>
     </Grid>
