@@ -10,7 +10,7 @@ import Link from '@material-ui/core/Link';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import MenuIcon from '@material-ui/icons/Menu';
-import logo from '../img/logo.svg';
+import logo from '../../img/logo.svg';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -72,7 +72,7 @@ export default function Header(){
 
   const classes = useStyles();
   const preventDefault = (event) => event.preventDefault();
-  
+
   return(
     <AppBar
       className={classes.app}
@@ -143,7 +143,7 @@ export default function Header(){
                     </List>
                   </div>
               </Drawer>
-            </Fragment> 
+            </Fragment>
             }
         </Grid>
       </Toolbar>

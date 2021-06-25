@@ -1,7 +1,9 @@
-import Header from './Header/Header';
-import Main from './Main/Main';
-import Map from './Map/Map';
-import Gallery from './Gallery/Gallery';
+import Header from './Components/Header/Header';
+import Main from './Components/Main/Main';
+import Agile from './Components/Agile/Agile';
+import Map from './Components/Map/Map';
+import Gallery from './Components/Gallery/Gallery';
+import Partners from './Components/Partners/Partners';
 import logo from './logo.svg';
 import './App.css';
 
@@ -10,8 +12,10 @@ function App() {
     <div className="App">
       <Header />
       <Main />
+      <Agile />
       <Map />
       <Gallery />
+      <Partners />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
