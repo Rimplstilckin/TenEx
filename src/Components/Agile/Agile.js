@@ -24,17 +24,15 @@ export default function Agile(){
   const classes = useStyles();
   return(
     <Grid
-      className={classes.agile}
-      xs={10}
       container
+      className={classes.agile}
       spacing={2}
-      alignItems="center">
+      justify="center">
         <Grid
+          item
           className={classes.left}
           xs={12}
           sm={6}
-          item
-          alignItems="center"
           >
           <h3>Our agille vans</h3>
           <p>Cabin Bag Sizes
@@ -43,21 +41,21 @@ export default function Agile(){
               Oversized or extra bags or items will need to
               be carried in the hold. The fee for this is
               €50/ 50 at the
-        </p>
+              </p>
+        </Grid>
+        <Grid
+          item
+          className={classes.right}
+          xs={12}
+          sm={6}
+          justify="center"
+          >
+          <img
+            className={classes.image}
+            alt="Van"
+            src='./img/KombiOk.jpeg'
+            />
+        </Grid>
       </Grid>
-      <Grid
-        className={classes.right}
-        xs={12}
-        sm={6}
-        item
-        alignItems="center"
-        >
-        <img
-          className={classes.image}
-          alt="Van"
-          src='./img/KombiOk.jpeg'
-          />
-      </Grid>
-    </Grid>
   )
 }

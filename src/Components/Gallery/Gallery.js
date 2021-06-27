@@ -27,7 +27,6 @@ export default function Gallery(){
       <Grid
         className={classes.gallery}
         container
-        xs={12}
         spacing={2}
         alignItems="center"
         >
@@ -37,7 +36,6 @@ export default function Gallery(){
                   xs={6}
                   sm={3}
                   key={item.name}
-                  spacing={2}
                   >
                     <img
                     className={classes.image}

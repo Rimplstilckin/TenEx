@@ -4,6 +4,7 @@ import Agile from './Components/Agile/Agile';
 import Map from './Components/Map/Map';
 import Gallery from './Components/Gallery/Gallery';
 import Partners from './Components/Partners/Partners';
+import Container from '@material-ui/core/Container';
 import logo from './logo.svg';
 import './App.css';
 
@@ -11,11 +12,13 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Main />
-      <Agile />
-      <Map />
-      <Gallery />
-      <Partners />
+      <Container maxWidth="md">
+        <Main />
+        <Agile />
+        <Map />
+        <Gallery />
+        <Partners />
+      </Container>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>

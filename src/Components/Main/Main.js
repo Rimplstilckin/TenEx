@@ -4,7 +4,7 @@ import Grid from '@material-ui/core/Grid';
 
 const useStyles = makeStyles((theme) => ({
   img: {
-    width: "90%"
+    width:"100%"
   }
 }));
 
@@ -12,6 +12,7 @@ export default function Main(){
   const classes = useStyles();
   return(
     <Grid
+      item
       xs={12}
       className={classes.main}>
         <img
