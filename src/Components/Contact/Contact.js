@@ -1,6 +1,8 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
+import Link from '@material-ui/core/Link';
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -53,9 +55,15 @@ export default function Agile(){
             <Grid
               item
               xs={12}
-              sm={4}
-              className={classes.item}>
-                
+              sm={4}>
+                <div className={classes.social}>
+                  <Link>
+                    <image
+                      src='./img/social/skype'
+                      alt='Skype'/>
+                    Tenex
+                  </Link>
+                </div>
             </Grid>
         </Grid>
       </div>
