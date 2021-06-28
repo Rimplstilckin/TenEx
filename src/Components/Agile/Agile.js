@@ -48,7 +48,6 @@ export default function Agile(){
           className={classes.right}
           xs={12}
           sm={6}
-          justify="center"
           >
           <img
             className={classes.image}

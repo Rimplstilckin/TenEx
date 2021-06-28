@@ -10,11 +10,14 @@ const useStyles = makeStyles((theme) => ({
     width:"80%",
     margin:"auto"
   },
-
+  icon: {
+    width: "20px"
+  }
 }));
 
 export default function Agile(){
   const classes = useStyles();
+  const preventDefault = (event) => event.preventDefault();
   return(
     <div className={classes.contact}>
         <Grid
@@ -57,9 +60,13 @@ export default function Agile(){
               xs={12}
               sm={4}>
                 <div className={classes.social}>
-                  <Link>
-                    <image
-                      src='./img/social/skype'
+                  <Link
+                    href="#"
+                    onClick={preventDefault}
+                    rel="noopener">
+                    <img
+                      className={classes.icon}
+                      src='./img/social/skype.png'
                       alt='Skype'/>
                     Tenex
                   </Link>
