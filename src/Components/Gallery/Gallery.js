@@ -1,10 +1,11 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-
+import { width } from '../../globals';
 
 const useStyles = makeStyles((theme) => ({
   gallery: {
+    width: width,
     margin:'auto'
   },
   image: {
