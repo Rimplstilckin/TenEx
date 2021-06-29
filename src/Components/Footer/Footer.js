@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Footer(){
   const classes = useStyles();
-
+  const preventDefault = (event) => event.preventDefault();
   return(
     <div className={classes.footer}>
       <Grid
@@ -26,7 +26,13 @@ export default function Footer(){
             item
             xs={5}
             >
-            <img className={classes.img} src='./img/logo.svg' alt='Logo'/>
+            <Link
+              href='#'
+              onClick={preventDefault}
+              rel="noopener"
+              >
+              <img className={classes.img} src='./img/logo.svg' alt='Logo'/>
+            </Link>
           </Grid>
           <Grid
             container
@@ -35,13 +41,15 @@ export default function Footer(){
             >
             <Grid
               item
-              xs={6}
+              xs={12}
+              sm={6}
               >
                 impressum
             </Grid>
             <Grid
               item
-              xs={6}
+              xs={12}
+              sm={6}
               >
                 Privacy policy
             </Grid>
@@ -55,35 +63,41 @@ export default function Footer(){
           <Grid
             container
             item
-            xs={4}
+            xs={12}
+            sm={4}
             >
             <Grid
               item
-              xs={4}
+              xs={12}
+              sm={4}
               >
               About
             </Grid>
             <Grid
               item
-              xs={4}
+              xs={12}
+              sm={4}
               >
               References
             </Grid>
             <Grid
               item
-              xs={4}
+              xs={12}
+              sm={4}
               >
               Ride with us
             </Grid>
             <Grid
               item
-              xs={4}
+              xs={12}
+              sm={4}
               >
               Gallery
             </Grid>
             <Grid
               item
-              xs={4}
+              xs={12}
+              sm={4}
               >
               Location
             </Grid>

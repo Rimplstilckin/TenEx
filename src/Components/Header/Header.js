@@ -23,6 +23,9 @@ const useStyles = makeStyles((theme) => ({
   img: {
     maxWidth: 150,
     minWidth: 120
+  },
+  content: {
+    textAlign: 'right'
   }
 }));
 
@@ -33,7 +36,7 @@ const getWidth = () => window.innerWidth
 
   function useCurrentWidth() {
   // save current window width in the state object
-  let [width, setWidth] = useState(getWidth());
+  let [screenWidth, setWidth] = useState(getWidth());
 
   // in this case useEffect will execute only once because
   // it does not have any dependencies.
@@ -52,7 +55,7 @@ const getWidth = () => window.innerWidth
     }
   }, [])
 
-  return width;
+  return screenWidth;
 }
 
 const menu = [{name:"O Direktoru", key: "oNama"},
@@ -68,7 +71,7 @@ export default function Header(){
     newState(!currentState);
   }
 
-  let width = useCurrentWidth();
+  let screenWidth = useCurrentWidth();
 
   const classes = useStyles();
   const preventDefault = (event) => event.preventDefault();
@@ -79,22 +82,31 @@ export default function Header(){
       position="static"
       color="bar">
       <Toolbar className={classes.toolbar}>
-        <Grid container spacing={2} alignItems="center">
-          <Grid className={classes.logoClass} item sm={2} xs={10} >
-            <Link href="/.#" onClick={preventDefault}>
-              <img className={classes.img} src={logo} alt="Logo" />
-            </Link>
+        <Grid
+          container
+          spacing={2}
+          alignItems="center"
+          >
+          <Grid
+            className={classes.logoClass}
+            item
+            sm={4}
+            xs={10}
+            >
+              <Link href="/.#" onClick={preventDefault}>
+                <img className={classes.img} src={logo} alt="Logo" />
+              </Link>
           </Grid>
           {
-          width>700 ?
+          screenWidth>700 ?
           <Fragment>
             <Grid item
-                  className={classes.content}
                   container
-                  sm={8}
+                  className={classes.content}
+                  sm={4}
                   spacing={2}>
-                {menu.map(item=>{
-                  return(<Grid item
+                  {menu.map(item=>{
+                    return(<Grid item
                               sm={3}
                               key={item.key}>
                             <Link color="inherit"
@@ -106,7 +118,7 @@ export default function Header(){
                           </Grid>)
                 })}
               </Grid>
-              <Grid item xs={2} className={classes.content}>
+              <Grid item xs={4} className={classes.content}>
               <Button
                     component={Link}
                     variant="contained"
