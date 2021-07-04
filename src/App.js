@@ -13,8 +13,8 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Container maxWidth="md">
         <Main />
+      <Container maxWidth='lg'>
         <Agile />
         <Map />
         <Gallery />

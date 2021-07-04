@@ -36,8 +36,13 @@ const useStyles = makeStyles((theme) => ({
     lineHeight: '10%',
     verticalAlign: 'middle'
   },
-  text: {
-    textAlign: 'center'
+  socialText: {
+    textAlign: 'left',
+    // width: '200px',
+    marginLeft: '30px'
+  },
+  link: {
+
   },
   icon: {
     width: "30px",
@@ -102,14 +107,15 @@ export default function Contact(){
                     <Link
                       href={item.link}
                       onClick={preventDefault}
-                      rel="noopener">
-                      <p className={classes.text}>
-                        <img
-                          className={classes.icon}
-                          src={item.src}
-                          alt={item.name}/>
-                        {item.name}
-                    </p>
+                      rel="noopener"
+                      >
+                        <p className={classes.socialText}>
+                          <img
+                            className={classes.icon}
+                            src={item.src}
+                            alt={item.name} />
+                          {item.name}
+                        </p>
                     </Link>
                   </Grid>
                 )

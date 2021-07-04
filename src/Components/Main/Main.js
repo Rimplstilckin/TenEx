@@ -14,7 +14,8 @@ export default function Main(){
     <Grid
       item
       xs={12}
-      className={classes.main}>
+      className={classes.main}
+      >
         <img
           className={classes.img}
           src="./img/kombi.jpeg"

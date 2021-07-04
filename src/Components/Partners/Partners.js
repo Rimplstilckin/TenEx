@@ -43,23 +43,25 @@ export default function Partners(){
         className={classes.container}
         spacing={3}
         alignItems="center"
+        justify='center'
         >
         {partners.map((item, index) =>{
           return(
               item.map((partner, i) => {
                 return(
                   <Grid
-                  index={partner.name}
-                  item
-                  key={partner.name}
-                  xs={item.length>1 ? 6 : 12}
-                  sm={12/item.length}
-                  >
-                    <img
-                      className={classes.image}
-                      src={partner.path}
-                      alt={partner.name}
-                    />
+                    index={partner.name}
+                    item
+                    spacing={1}
+                    key={partner.name}
+                    xs={item.length>1 ? 6 : 12}
+                    sm={12/item.length}
+                    >
+                      <img
+                        className={classes.image}
+                        src={partner.path}
+                        alt={partner.name}
+                      />
                   </Grid>
                   )
               })
